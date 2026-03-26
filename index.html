@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shubham Dhruva | Data Scientist & ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b1424;
+  --bg-soft: #13233c;
+  --card: #162945;
+  --card-2: #12233d;
+  --line: #2a4670;
+  --text: #e7eef9;
+  --muted: #a8bbd8;
+  --cyan: #4ed6f7;
+  --blue: #5d7ef4;
+  --green: #22c18a;
+  --amber: #f7b63c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  color: var(--text);
+  font: 14px/1.7 'JetBrains Mono', monospace;
+  background:
+    radial-gradient(900px 520px at -10% -20%, rgba(93,126,244,0.30), transparent 62%),
+    radial-gradient(900px 520px at 120% 0%, rgba(78,214,247,0.20), transparent 64%),
+    linear-gradient(180deg, #0b1424 0%, #0a172b 44%, #091325 100%);
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+.page {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 20, 36, 0.78);
+  border-bottom: 1px solid rgba(36, 58, 99, 0.7);
+}
+.nav-inner {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.brand {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.brand span { color: var(--cyan); }
+.nav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nav-links a.active,
+.nav-links a:hover { color: var(--cyan); }
+.nav-cta {
+  border: 1px solid var(--cyan);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--cyan);
+  text-decoration: none;
+}
+.nav-cta:hover { background: var(--cyan); color: #04101d; }
+
+section { padding: 80px 0; position: relative; }
+.section-kicker {
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  margin-bottom: 26px;
+}
+
+.hero {
+  padding-top: 88px;
+  min-height: 84vh;
+  display: grid;
+  align-items: center;
+}
+.hero-inner {
+  max-width: 1060px;
+  width: 100%;
+}
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  align-items: center;
+  gap: clamp(24px, 4vw, 54px);
+}
+.hero-copy {
+  max-width: 700px;
+}
+.hero-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  justify-self: end;
+}
+.hero-media::before {
+  content: "";
+  position: absolute;
+  width: clamp(240px, 34vw, 350px);
+  aspect-ratio: 1 / 1;
+  border-radius: 56% 44% 52% 48% / 45% 58% 42% 55%;
+  background: radial-gradient(circle at 28% 20%, rgba(78, 214, 247, 0.36), rgba(93, 126, 244, 0.08) 72%);
+  filter: blur(1.2px);
+  animation: heroBlobMorph 8s ease-in-out infinite;
+  z-index: 0;
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  width: clamp(210px, 30vw, 320px);
+  aspect-ratio: 1 / 1;
+  border-radius: 44% 56% 42% 58% / 57% 43% 57% 43%;
+  background: radial-gradient(circle at 70% 72%, rgba(93, 126, 244, 0.3), rgba(78, 214, 247, 0.02) 68%);
+  transform: translate(12px, 14px);
+  animation: heroBlobFloat 6.5s ease-in-out infinite;
+  z-index: 0;
+}
+.hero-profile {
+  width: clamp(170px, 28vw, 250px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  border: 0;
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+  background: #0d1b31;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+.hero-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 26%;
+  transform: scale(1.22);
+  display: block;
+}
+.hero-chip {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(54, 215, 255, 0.28);
+  background: rgba(54, 215, 255, 0.08);
+  color: var(--cyan);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-chip::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+.hero h1 {
+  margin: 18px 0 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.hero h1 span { color: var(--cyan); }
+.hero-role {
+  margin-bottom: 16px;
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.2rem, 2.7vw, 1.9rem);
+  color: var(--muted);
+  min-height: 2.1rem;
+  letter-spacing: 0.01em;
+}
+.hero-role.typing::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--cyan);
+  animation: caretBlink .9s steps(1, end) infinite;
+}
+@keyframes caretBlink {
+  0%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0; }
+}
+@keyframes heroBlobMorph {
+  0%, 100% { border-radius: 56% 44% 52% 48% / 45% 58% 42% 55%; transform: translate(0, 0); }
+  50% { border-radius: 45% 55% 40% 60% / 60% 42% 58% 40%; transform: translate(-6px, 5px); }
+}
+@keyframes heroBlobFloat {
+  0%, 100% { transform: translate(12px, 14px) scale(1); }
+  50% { transform: translate(18px, 8px) scale(1.03); }
+}
+.hero p {
+  color: var(--muted);
+  max-width: 680px;
+}
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.btn {
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 13px;
+  border: 1px solid transparent;
+}
+.btn.primary {
+  background: var(--blue);
+  color: #fff;
+}
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.ghost {
+  border-color: var(--line);
+  color: var(--text);
+}
+.btn.ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.skills-wrap {
+  background: linear-gradient(180deg, rgba(14, 27, 53, 0.9), rgba(14, 27, 53, 0.6));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.skill-card {
+  border: 1px solid var(--line);
+  background: var(--card-2);
+  border-radius: 14px;
+  padding: 18px;
+}
+.skill-head {
+  margin-bottom: 14px;
+  font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-size: 12px;
+}
+.skill-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.skill-pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.skill-pill:hover,
+.skill-pill.active {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: rgba(54, 215, 255, 0.1);
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.filter-btn {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 7px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  cursor: pointer;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  background: rgba(54, 215, 255, 0.1);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 16px;
+}
+.project-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  overflow: hidden;
+  transition: transform .2s ease, border-color .2s ease;
+  cursor: pointer;
+}
+.project-card:hover { transform: translateY(-4px); border-color: var(--blue); }
+.project-card.hidden { display: none; }
+.project-visual {
+  height: 150px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 0.06em;
+  position: relative;
+  overflow: hidden;
+}
+.project-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 14, 28, 0.06), rgba(5, 14, 28, 0.8));
+}
+.project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.project-visual-label {
+  position: absolute;
+  z-index: 1;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  text-align: center;
+  font-size: 1.08rem;
+}
+.project-visual.cv { background: linear-gradient(135deg, rgba(79,125,246,0.26), rgba(54,215,255,0.16)); }
+.project-visual.health { background: linear-gradient(135deg, rgba(247,182,60,0.24), rgba(79,125,246,0.16)); }
+.project-visual.bi { background: linear-gradient(135deg, rgba(34,193,138,0.24), rgba(79,125,246,0.15)); }
+.project-body { padding: 16px; }
+.project-index { color: var(--dim); font-size: 11px; margin-bottom: 4px; }
+.project-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.project-desc { color: var(--muted); font-size: 12px; }
+.project-tags {
+  margin-top: 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.project-tags span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.timeline {
+  display: grid;
+  gap: 16px;
+}
+.exp-item {
+  border: 1px solid var(--line);
+  background: var(--card-2);
+  border-radius: 14px;
+  padding: 18px;
+}
+.exp-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.exp-role { font-family: 'Syne', sans-serif; font-size: 1.1rem; }
+.exp-org { color: var(--blue); font-size: 12px; }
+.exp-date { color: var(--muted); font-size: 11px; }
+.exp-item ul { list-style: none; margin-top: 10px; }
+.exp-item li { color: var(--muted); margin-bottom: 7px; padding-left: 14px; position: relative; }
+.exp-item li::before { content: ">"; position: absolute; left: 0; color: var(--cyan); }
+.tag-row {
+  margin-top: 10px;
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.tag-row span {
+  border: 1px solid rgba(79,125,246,0.35);
+  background: rgba(79,125,246,0.1);
+  color: var(--blue);
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 10px;
+}
+
+.edu-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.edu-card {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px;
+}
+.edu-title { font-family: 'Syne', sans-serif; font-size: 1.15rem; margin-bottom: 3px; }
+.edu-org { color: var(--blue); font-size: 12px; }
+.edu-meta {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.edu-meta span {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px 9px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.edu-meta .gold {
+  color: var(--amber);
+  border-color: rgba(247,182,60,0.35);
+  background: rgba(247,182,60,0.08);
+}
+.edu-toggle {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  color: var(--cyan);
+  background: rgba(54,215,255,0.06);
+  border-radius: 8px;
+  padding: 8px 11px;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+.course-list {
+  margin-top: 11px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  list-style: none;
+  display: none;
+}
+.course-list.open { display: block; }
+.course-list li { color: var(--muted); margin-bottom: 6px; font-size: 12px; }
+
+.contact {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(14, 27, 53, 0.6), rgba(14, 27, 53, 0.3));
+}
+.contact .section-title { margin-bottom: 12px; }
+.contact p { color: var(--muted); max-width: 820px; }
+.contact-links {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.contact-links a {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.contact-links a:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.who-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(18, 35, 61, 0.86), rgba(18, 35, 61, 0.62));
+  border-radius: 16px;
+  padding: 22px;
+}
+.who-card p {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.connect-form {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+.form-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.connect-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.connect-form input,
+.connect-form textarea {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 11px;
+  color: var(--text);
+  background: rgba(9, 19, 37, 0.8);
+  font: inherit;
+}
+.connect-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.connect-form button {
+  justify-self: start;
+  border: 1px solid var(--cyan);
+  border-radius: 10px;
+  background: rgba(78, 214, 247, 0.12);
+  color: var(--cyan);
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+.connect-form button:hover {
+  background: var(--cyan);
+  color: #051426;
+}
+.form-status {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+footer {
+  padding: 18px 0 26px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.modal-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(3, 8, 20, 0.86);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.modal-wrap.open { display: flex; }
+.modal {
+  width: min(760px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+}
+.modal-head {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.modal-head h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.35rem;
+}
+.modal-close {
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  color: var(--muted);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.modal-close:hover { color: #fff; border-color: var(--cyan); }
+.modal-body { padding: 16px; }
+.modal-body h4 {
+  margin: 14px 0 8px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+}
+.modal-body p { color: var(--muted); }
+.modal-body ul { list-style: none; }
+.modal-body li { color: var(--muted); padding-left: 14px; position: relative; margin-bottom: 7px; }
+.modal-body li::before { content: ">"; color: var(--blue); position: absolute; left: 0; }
+.pipeline-snippet {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #0a1730;
+  color: #dce8ff;
+  font: 12px/1.55 'JetBrains Mono', monospace;
+  padding: 10px 12px;
+  overflow-x: auto;
+}
+
+.reveal { opacity: 0; transform: translateY(14px); transition: .5s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 680px) {
+  .page, .nav-inner { width: calc(100% - 24px); }
+  section { padding: 64px 0; }
+  .hero { min-height: auto; padding-top: 66px; }
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-media { justify-content: start; justify-self: start; }
+  .hero-media::before { left: 8px; }
+  .form-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="brand">SD<span>.</span></div>
+    <div class="nav-links">
+      <a href="#whoami">Who Am I</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="mailto:skdhruva2012@gmail.com">Hire Me</a>
+  </div>
+</nav>
+
+<main class="page">
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <div class="hero-chip">Open to Full-Time, Contract, Internship, and Part-Time | Open to Relocation Across USA</div>
+          <h1>Shubham <span>Dhruva</span></h1>
+          <div class="hero-role">Data Scientist | ML Engineer | Data Analyst</div>
+          <p>MS Computer Science at Arizona State University (GPA 4.0). I build practical machine learning and analytics solutions that turn data into clear business decisions.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="hero-profile">
+            <img src="image.png" alt="Shubham Dhruva portrait">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="page" id="whoami">
+  <div class="section-kicker">About Me</div>
+  <h2 class="section-title reveal">Who Am I</h2>
+  <article class="who-card reveal">
+    <p>I do not just analyze data - I turn messy, complex datasets into decisions that save time, grow revenue, and reduce risk. That is what I have done across ML projects, dashboards, and ETL pipelines.</p>
+    <p>Completed my Master of Science in Computer Science at Arizona State University (GPA: 4.0), I specialize in end-to-end data workflows - from data ingestion and preprocessing to predictive modeling and visualization. My technical toolkit includes Python, SQL, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Apache Spark, and AWS.</p>
+    <p>As a Library Assistant at ASU, I also honed cross-functional communication, database management, and technical support - skills that bridge the gap between data teams and business stakeholders.</p>
+    <p>I bring a problem-solver mindset: I ask why the numbers look the way they do, not just what they are. I thrive in collaborative, fast-moving environments and am actively seeking Data Analyst, Data Scientist, or AI Specialist roles in the US - open to roles across USA and remote positions.</p>
+  </article>
+</section>
+
+<section class="skills-wrap" id="skills">
+  <div class="page">
+    <div class="section-kicker">Technical Arsenal</div>
+    <h2 class="section-title reveal">Skills and Tools</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-head">Languages</div>
+        <div class="skill-pills">
+          <button class="skill-pill" data-group="Languages">Python</button>
+          <button class="skill-pill" data-group="Languages">SQL</button>
+          <button class="skill-pill" data-group="Languages">JavaScript</button>
+          <button class="skill-pill" data-group="Languages">HTML/CSS</button>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-head">ML and AI</div>
+        <div class="skill-pills">
+          <button class="skill-pill" data-group="ML and AI">Scikit-learn</button>
+          <button class="skill-pill" data-group="ML and AI">TensorFlow</button>
+          <button class="skill-pill" data-group="ML and AI">PyTorch</button>
+          <button class="skill-pill" data-group="ML and AI">Feature Engineering</button>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-head">BI and Visualization</div>
+        <div class="skill-pills">
+          <button class="skill-pill" data-group="BI and Visualization">Power BI</button>
+          <button class="skill-pill" data-group="BI and Visualization">Tableau</button>
+          <button class="skill-pill" data-group="BI and Visualization">Matplotlib</button>
+          <button class="skill-pill" data-group="BI and Visualization">Seaborn</button>
+          <button class="skill-pill" data-group="BI and Visualization">DAX / Power Query</button>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-head">Data Engineering</div>
+        <div class="skill-pills">
+          <button class="skill-pill" data-group="Data Engineering">ETL Pipelines</button>
+          <button class="skill-pill" data-group="Data Engineering">Apache Spark</button>
+          <button class="skill-pill" data-group="Data Engineering">AWS</button>
+          <button class="skill-pill" data-group="Data Engineering">PostgreSQL / MySQL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="projects">
+  <div class="section-kicker">Featured Work</div>
+  <h2 class="section-title reveal">Projects</h2>
+
+  <div class="filter-row reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="ml">ML</button>
+    <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+    <button class="filter-btn" data-filter="analytics">Analytics</button>
+  </div>
+
+  <div class="project-grid">
+    <article class="project-card reveal" data-tags="ml healthcare">
+      <div class="project-visual cv">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80" alt="Healthcare analytics dashboard visual">
+        <span class="project-visual-label">BRAIN MRI ML</span>
+      </div>
+      <div class="project-body" data-open="brain">
+        <div class="project-index">01 / 05</div>
+        <div class="project-title">Brain Tumor Detection</div>
+        <div class="project-desc">Built SVM and Logistic Regression classifiers on MRI images for binary tumor detection and improved precision with iterative tuning.</div>
+        <div class="project-tags"><span>Python</span><span>Scikit-learn</span><span>SVM</span><span>OpenCV</span><span>NumPy</span></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal" data-tags="ml healthcare">
+      <div class="project-visual health">
+        <img src="https://images.unsplash.com/photo-1579165466991-467135ad3110?auto=format&fit=crop&w=1200&q=80" alt="Healthcare machine learning dashboard visual">
+        <span class="project-visual-label">HEALTHCARE ML</span>
+      </div>
+      <div class="project-body" data-open="diabetes">
+        <div class="project-index">02 / 05</div>
+        <div class="project-title">Early-Stage Diabetes Prediction</div>
+        <div class="project-desc">Developed a multi-model classification workflow on EHR-style data to predict diabetes risk with strong recall and balanced validation.</div>
+        <div class="project-tags"><span>KNN</span><span>Naive Bayes</span><span>XGBoost</span><span>Pandas</span><span>EHR</span></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal" data-tags="analytics">
+      <div class="project-visual bi">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="E-commerce analytics dashboard visual">
+        <span class="project-visual-label">E-COMMERCE ANALYTICS</span>
+      </div>
+      <div class="project-body" data-open="ecommerce">
+        <div class="project-index">03 / 05</div>
+        <div class="project-title">E-Commerce Pricing Analytics</div>
+        <div class="project-desc">Created a pricing and customer segmentation analytics flow over large transaction data for cohort-level decision support.</div>
+        <div class="project-tags"><span>K-Means</span><span>SQL</span><span>Pandas</span><span>Matplotlib</span><span>BI</span></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal" data-tags="ml analytics">
+      <div class="project-visual cv">
+        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80" alt="Credit card fraud detection visual">
+        <span class="project-visual-label">FRAUD DETECTION</span>
+      </div>
+      <div class="project-body" data-open="fraud">
+        <div class="project-index">04 / 05</div>
+        <div class="project-title">Credit Card Fraud Detection</div>
+        <div class="project-desc">Handled highly imbalanced transaction data with SMOTE and compared Logistic Regression and XGBoost for fraud-focused evaluation.</div>
+        <div class="project-tags"><span>SMOTE</span><span>XGBoost</span><span>Scikit-learn</span><span>Seaborn</span><span>Matplotlib</span></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal" data-tags="analytics">
+      <div class="project-visual bi">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80" alt="Renewable energy wind farm visual">
+        <span class="project-visual-label">RENEWABLE EDA</span>
+      </div>
+      <div class="project-body" data-open="renewable">
+        <div class="project-index">05 / 05</div>
+        <div class="project-title">Renewable Energy Consumption Analysis</div>
+        <div class="project-desc">Analyzed U.S. renewable energy patterns by sector and source across decades with exploratory and comparative visual storytelling.</div>
+        <div class="project-tags"><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="page" id="experience">
+  <div class="section-kicker">Work History</div>
+  <h2 class="section-title reveal">Experience</h2>
+
+  <div class="timeline">
+    <article class="exp-item reveal">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role">Library Assistant</div>
+          <div class="exp-org">Arizona State University (Tempe, AZ)</div>
+        </div>
+        <div class="exp-date">Aug 2024 - Dec 2025</div>
+      </div>
+      <ul>
+        <li>Supported students and faculty daily in resolving queries, troubleshooting library systems, and accessing academic resources.</li>
+        <li>Provided technical support for databases, printing, and digital tools, reducing user issues by 30% through proactive guidance.</li>
+        <li>Maintained and updated circulation records and digital catalogs, ensuring high accuracy in data entry and resource tracking.</li>
+        <li>Supported library workshops and front-desk operations to enhance student engagement and information literacy.</li>
+      </ul>
+      <div class="tag-row">
+        <span>Critical Thinking & Problem-Solving</span>
+        <span>Communication</span>
+        <span>Curiosity</span>
+        <span>Customer Satisfaction</span>
+      </div>
+    </article>
+
+    <article class="exp-item reveal">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role">Data Scientist Intern</div>
+          <div class="exp-org">Maxgen Technologies Pvt. Ltd. (Pune, India)</div>
+        </div>
+        <div class="exp-date">May 2022 - Nov 2022</div>
+      </div>
+      <ul>
+        <li>Engineered Python automation pipelines for data collection, cleaning, and preprocessing, improving data quality by 30%.</li>
+        <li>Architected SQL-based ETL workflows for multi-source integration, cutting manual processing time by 35%.</li>
+        <li>Developed classification and clustering models for customer segmentation and forecasting, improving model quality by 15%.</li>
+        <li>Built Power BI and Excel dashboards for KPI tracking and faster reporting workflows.</li>
+      </ul>
+      <div class="tag-row">
+        <span>Python</span><span>SQL ETL</span><span>Scikit-learn</span><span>NumPy</span><span>Pandas</span><span>Seaborn</span><span>Matplotlib</span><span>Bokeh</span><span>Jira</span><span>Power BI</span><span>Agile</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="page" id="education">
+  <div class="section-kicker">Academic Background</div>
+  <h2 class="section-title reveal">Education</h2>
+
+  <div class="edu-grid">
+    <article class="edu-card reveal">
+      <div class="edu-title">Master of Science in Computer Science</div>
+      <div class="edu-org">Arizona State University (Tempe, AZ)</div>
+      <button class="edu-toggle" data-target="masters">View Coursework</button>
+      <ul class="course-list" id="masters">
+        <li>CSE 566 - Project/Process/Quality Management</li>
+        <li>CSE 572 - Data Mining</li>
+        <li>CSE 598 - Engineering Blockchain Applications</li>
+        <li>CSE 511 - Data Processing at Scale</li>
+        <li>CSE 539 - Applied Cryptography</li>
+        <li>CSE 579 - Knowledge Representation</li>
+        <li>CSE 463 - Intro Human Computer Interaction</li>
+        <li>CSE 475 - Foundations of Machine Learning</li>
+        <li>CSE 578 - Data Visualization</li>
+        <li>CSE 575 - Statistical Machine Learning</li>
+      </ul>
+      <div class="edu-meta">
+        <span class="gold">GPA: 4.0 / 4.0</span>
+        <span>Jan 2024 - Dec 2025</span>
+        <span>Tempe, AZ</span>
+      </div>
+    </article>
+
+    <article class="edu-card reveal">
+      <div class="edu-title">B.Tech in Computer Engineering</div>
+      <div class="edu-org">Bharati Vidyapeeth Deemed University (Pune, India)</div>
+      <button class="edu-toggle" data-target="bachelors">View Important Courses</button>
+      <ul class="course-list" id="bachelors">
+        <li>Data Mining and Knowledge Discovery</li>
+        <li>Big Data Analytics and Architecture</li>
+        <li>Database Management Systems</li>
+        <li>Machine Learning</li>
+        <li>Artificial Intelligence and Robotics</li>
+        <li>Image Processing and Pattern Recognition</li>
+        <li>Design and Analysis of Algorithms</li>
+        <li>Software Testing</li>
+        <li>Human Computer Interaction</li>
+      </ul>
+      <div class="edu-meta">
+        <span class="gold">GPA: 9.21 / 10.0</span>
+        <span>Jul 2019 - Jun 2023</span>
+        <span>KAVACH 2023</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="page">
+    <div class="section-kicker">Let us connect</div>
+    <h2 class="section-title reveal">Open to Opportunities</h2>
+    <p>Actively seeking Data Analyst, Data Scientist, and AI Specialist roles in the US. Available immediately and open to relocation across the USA, as well as fully remote work.</p>
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/shubham-dhruva" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:skdhruva2012@gmail.com?subject=Opportunity%20Discussion">skdhruva2012@gmail.com</a>
+    </div>
+    <form id="connect-form" class="connect-form reveal">
+      <div class="form-grid">
+        <label>Name
+          <input id="connect-name" type="text" name="name" required>
+        </label>
+        <label>Company Name
+          <input id="connect-company" type="text" name="company" required>
+        </label>
+      </div>
+      <label>Mail ID
+        <input id="connect-email" type="email" name="email" required>
+      </label>
+      <label>Message
+        <textarea id="connect-message" name="message" required></textarea>
+      </label>
+      <button type="submit">Send Opportunity Mail</button>
+      <p id="connect-status" class="form-status">Fill details and submit. You will send your interest directly to my inbox.</p>
+    </form>
+  </div>
+</section>
+
+<div class="page">
+  <footer>
+    <span>Copyright 2026 Shubham Dhruva</span>
+    <span>Data Scientist | ML Engineer | Open to Relocation Across USA</span>
+  </footer>
+</div>
+
+<div class="modal-wrap" id="modal-brain">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Brain Tumor Detection</h3>
+      <button class="modal-close" data-close>+</button>
+    </div>
+    <div class="modal-body">
+      <h4>Problem</h4>
+      <p>Automate MRI-based tumor detection with robust classification performance.</p>
+      <h4>Approach</h4>
+      <ul>
+        <li>Preprocessed MRI images with OpenCV</li>
+        <li>Trained SVM and Logistic Regression models</li>
+        <li>Evaluated with accuracy and precision-oriented tuning</li>
+      </ul>
+      <h4>Tech Stack</h4>
+      <ul><li>Python, OpenCV, NumPy, Scikit-learn</li></ul>
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">images = load_mri_images(path)
+X, y = preprocess_opencv(images)
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+model = train_svm_or_logreg(X_train, y_train)
+print(evaluate_precision_recall(model, X_test, y_test))</pre>
+    </div>
+  </div>
+</div>
+
+<div class="modal-wrap" id="modal-diabetes">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Early-Stage Diabetes Prediction</h3>
+      <button class="modal-close" data-close>+</button>
+    </div>
+    <div class="modal-body">
+      <h4>Problem</h4>
+      <p>Predict early diabetes risk from clinical and survey-style records.</p>
+      <h4>Approach</h4>
+      <ul>
+        <li>Feature selection and preprocessing pipeline</li>
+        <li>Multi-model comparison: LR, KNN, Naive Bayes, XGBoost</li>
+        <li>Performance measured with recall, precision, and F1</li>
+      </ul>
+      <h4>Tech Stack</h4>
+      <ul><li>Python, Pandas, Scikit-learn, XGBoost</li></ul>
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">df = read_ehr_csv(file)
+df = clean_missing_values(df)
+X, y = encode_and_scale(df)
+models = train_models(["knn", "naive_bayes", "xgboost"], X, y)
+print(compare_by_f1_recall(models, X, y))</pre>
+    </div>
+  </div>
+</div>
+
+<div class="modal-wrap" id="modal-ecommerce">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>E-Commerce Pricing Analytics</h3>
+      <button class="modal-close" data-close>+</button>
+    </div>
+    <div class="modal-body">
+      <h4>Problem</h4>
+      <p>Understand pricing and customer behavior to support retention and growth decisions.</p>
+      <h4>Approach</h4>
+      <ul>
+        <li>Built integrated analytics data flow</li>
+        <li>Used segmentation and trend analysis</li>
+        <li>Created BI-ready outputs for reporting</li>
+      </ul>
+      <h4>Tech Stack</h4>
+      <ul><li>Pandas, SQL, K-Means, Matplotlib</li></ul>
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">orders = extract_transactions_sql(conn)
+orders = clean_orders(orders)
+rfm = feature_engineering_rfm(orders)
+segments = kmeans_segmentation(rfm)
+publish_dashboard_outputs(segments)</pre>
+    </div>
+  </div>
+</div>
+
+<div class="modal-wrap" id="modal-fraud">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Credit Card Fraud Detection</h3>
+      <button class="modal-close" data-close>+</button>
+    </div>
+    <div class="modal-body">
+      <h4>Problem</h4>
+      <p>Detect rare fraud events in a highly imbalanced credit card transaction dataset.</p>
+      <h4>Approach</h4>
+      <ul>
+        <li>Applied stratified split and SMOTE</li>
+        <li>Compared Logistic Regression and XGBoost</li>
+        <li>Focused on confusion matrix, recall, and precision</li>
+      </ul>
+      <h4>Tech Stack</h4>
+      <ul><li>Pandas, Scikit-learn, XGBoost, imbalanced-learn</li></ul>
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">X_train, X_test, y_train, y_test = stratified_split(X, y)
+X_res, y_res = smote_resample(X_train, y_train)
+models = train_lr_xgb(X_res, y_res)
+best = threshold_tuning(models, X_test, y_test)
+save_model(best, "fraud_model.pkl")</pre>
+    </div>
+  </div>
+</div>
+
+<div class="modal-wrap" id="modal-renewable">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Renewable Energy Consumption Analysis</h3>
+      <button class="modal-close" data-close>+</button>
+    </div>
+    <div class="modal-body">
+      <h4>Problem</h4>
+      <p>Analyze long-term renewable energy behavior in the U.S. by source and sector.</p>
+      <h4>Approach</h4>
+      <ul>
+        <li>Cleaned and profiled multi-year monthly dataset</li>
+        <li>Compared source trends and sector patterns</li>
+        <li>Examined renewable share against total energy</li>
+      </ul>
+      <h4>Tech Stack</h4>
+      <ul><li>Pandas, NumPy, Matplotlib, Seaborn, Plotly</li></ul>
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">df = load_eia_dataset(file)
+df = tidy_timeseries(df)
+agg = aggregate_by_source_sector(df)
+charts = compare_trends(agg)
+publish_insights_report(charts)</pre>
+    </div>
+  </div>
+</div>
+
+<script>
+let clientIpMasked = "n/a";
+let clientNetworkOrg = "n/a";
+let clientLocation = "n/a";
+const SHEETS_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+function isSheetsUrlConfigured(url) {
+  return typeof url === "string" && /^https:\/\/script\.google\.com\//.test(url);
+}
+
+function postEventToSheets(payload) {
+  if (!isSheetsUrlConfigured(SHEETS_WEB_APP_URL)) return;
+
+  const body = JSON.stringify({ action: "append", event: payload });
+  try {
+    if (navigator.sendBeacon) {
+      const sent = navigator.sendBeacon(
+        SHEETS_WEB_APP_URL,
+        new Blob([body], { type: "text/plain;charset=UTF-8" })
+      );
+      if (sent) return;
+    }
+  } catch {
+    // ignore and fallback to fetch
+  }
+
+  fetch(SHEETS_WEB_APP_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=UTF-8" },
+    body,
+  }).catch(() => {
+    // Keep UX non-blocking when network/script is unavailable
+  });
+}
+
+function getVisitorId() {
+  const key = "portfolio_visitor_id";
+  let id = localStorage.getItem(key);
+  if (!id) {
+    id = "v_" + Math.random().toString(36).slice(2, 10);
+    localStorage.setItem(key, id);
+  }
+  return id;
+}
+
+function maskIpAddress(rawIp) {
+  if (!rawIp || typeof rawIp !== "string") return "n/a";
+  if (rawIp.includes(".")) {
+    const parts = rawIp.split(".");
+    if (parts.length !== 4) return "n/a";
+    return parts[0] + "." + parts[1] + ".xxx.xxx";
+  }
+  if (rawIp.includes(":")) {
+    const parts = rawIp.split(":");
+    return (parts[0] || "xxxx") + ":" + (parts[1] || "xxxx") + ":xxxx:xxxx";
+  }
+  return "n/a";
+}
+
+async function getClientMaskedIp() {
+  const cacheKey = "portfolio_ip_masked";
+  const cached = sessionStorage.getItem(cacheKey);
+  if (cached) return cached;
+
+  try {
+    const response = await fetch("https://api.ipify.org?format=json", { cache: "no-store" });
+    if (!response.ok) return "n/a";
+    const data = await response.json();
+    const masked = maskIpAddress(data && data.ip ? String(data.ip) : "");
+    sessionStorage.setItem(cacheKey, masked);
+    return masked;
+  } catch {
+    return "n/a";
+  }
+}
+
+async function getClientNetworkOrg() {
+  const cacheKey = "portfolio_network_context";
+  const cached = sessionStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      return JSON.parse(cached);
+    } catch {
+      return { org: "n/a", location: "n/a" };
+    }
+  }
+
+  try {
+    const response = await fetch("https://ipapi.co/json/", { cache: "no-store" });
+    if (!response.ok) return { org: "n/a", location: "n/a" };
+    const data = await response.json();
+
+    const org = (data && (data.org || data.asn_org)) ? String(data.org || data.asn_org).trim() : "n/a";
+    const safeOrg = org || "n/a";
+
+    const city = data && data.city ? String(data.city).trim() : "";
+    const region = data && data.region ? String(data.region).trim() : "";
+    const country = data && data.country_name ? String(data.country_name).trim() : "";
+    const safeLocation = [city, region, country].filter(Boolean).join(", ") || "n/a";
+
+    const context = { org: safeOrg, location: safeLocation };
+    sessionStorage.setItem(cacheKey, JSON.stringify(context));
+    return context;
+  } catch {
+    return { org: "n/a", location: "n/a" };
+  }
+}
+
+function pushEvent(eventName, details = {}) {
+  const key = "portfolio_events";
+  let events = [];
+  try {
+    const raw = localStorage.getItem(key);
+    events = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(events)) events = [];
+  } catch {
+    events = [];
+  }
+
+  const payload = {
+    time: new Date().toISOString(),
+    visitorId: getVisitorId(),
+    ipMasked: clientIpMasked,
+    networkOrg: clientNetworkOrg,
+    location: clientLocation,
+    userAgent: navigator.userAgent || "n/a",
+    event: eventName,
+    source: new URLSearchParams(window.location.search).get("utm_source") || document.referrer || "direct",
+    ...details,
+  };
+
+  events.push(payload);
+  if (events.length > 3000) events = events.slice(-3000);
+  localStorage.setItem(key, JSON.stringify(events));
+  postEventToSheets(payload);
+}
+
+Promise.all([getClientMaskedIp(), getClientNetworkOrg()]).then(values => {
+  clientIpMasked = values[0] || "n/a";
+  clientNetworkOrg = values[1]?.org || "n/a";
+  clientLocation = values[1]?.location || "n/a";
+  pushEvent("page_view", { page: "index" });
+});
+
+const heroRole = document.querySelector('.hero-role');
+if (heroRole) {
+  const roleItems = [
+    'Data Scientist',
+    'ML Engineer',
+    'Data Analyst',
+    'Business Analyst',
+    "AI Specialist"
+  ];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+  heroRole.classList.add('typing');
+
+  function tickType() {
+    const current = roleItems[roleIndex];
+
+    if (!deleting) {
+      charIndex += 1;
+      heroRole.textContent = current.slice(0, charIndex);
+      if (charIndex >= current.length) {
+        deleting = true;
+        setTimeout(tickType, 1100);
+        return;
+      }
+      setTimeout(tickType, 95);
+      return;
+    }
+
+    charIndex -= 1;
+    heroRole.textContent = current.slice(0, Math.max(0, charIndex));
+    if (charIndex <= 0) {
+      deleting = false;
+      roleIndex = (roleIndex + 1) % roleItems.length;
+      setTimeout(tickType, 240);
+      return;
+    }
+    setTimeout(tickType, 52);
+  }
+
+  tickType();
+}
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+const navLinks = [...document.querySelectorAll('.nav-links a')];
+const trackedSections = [...document.querySelectorAll('section[id]')];
+const navObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    pushEvent("section_view", { section: entry.target.id });
+    navLinks.forEach(link => {
+      const active = link.getAttribute('href') === '#' + entry.target.id;
+      link.classList.toggle('active', active);
+    });
+  });
+}, { threshold: 0.5 });
+trackedSections.forEach(section => navObserver.observe(section));
+
+const skillPills = [...document.querySelectorAll('.skill-pill')];
+skillPills.forEach((pill, i) => {
+  pill.addEventListener('click', () => {
+    skillPills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+  });
+  if (i === 0) pill.click();
+});
+
+const filterButtons = [...document.querySelectorAll('.filter-btn')];
+const projectCards = [...document.querySelectorAll('.project-card')];
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const selected = btn.dataset.filter;
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    projectCards.forEach(card => {
+      const tags = (card.dataset.tags || '').split(' ');
+      const show = selected === 'all' || tags.includes(selected);
+      card.classList.toggle('hidden', !show);
+    });
+  });
+});
+
+document.querySelectorAll('.edu-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const target = document.getElementById(button.dataset.target);
+    const willOpen = !target.classList.contains('open');
+    target.classList.toggle('open');
+    button.textContent = willOpen ? 'Hide Coursework' : (button.dataset.target === 'bachelors' ? 'View Important Courses' : 'View Coursework');
+  });
+});
+
+const openers = [...document.querySelectorAll('[data-open]')];
+openers.forEach(opener => {
+  opener.addEventListener('click', () => {
+    const key = opener.dataset.open;
+    const modal = document.getElementById('modal-' + key);
+    if (modal) modal.classList.add('open');
+    pushEvent('project_open', { project: key });
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeAllModals() {
+  document.querySelectorAll('.modal-wrap.open').forEach(modal => modal.classList.remove('open'));
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-close]').forEach(button => {
+  button.addEventListener('click', closeAllModals);
+});
+
+document.querySelectorAll('.modal-wrap').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeAllModals();
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAllModals();
+});
+
+const connectForm = document.getElementById('connect-form');
+if (connectForm) {
+  const connectStatus = document.getElementById('connect-status');
+  const connectBtn = connectForm.querySelector('button[type="submit"]');
+
+  connectForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const name = document.getElementById('connect-name').value.trim();
+    const company = document.getElementById('connect-company').value.trim();
+    const email = document.getElementById('connect-email').value.trim();
+    const message = document.getElementById('connect-message').value.trim();
+
+    const subject = 'Want to discuss opportunity';
+    const body =
+      'Name: ' + name + '\n' +
+      'Company: ' + company + '\n' +
+      'Mail ID: ' + email + '\n\n' +
+      'Message:\n' + message;
+
+    if (connectStatus) connectStatus.textContent = 'Sending your message...';
+    if (connectBtn) connectBtn.disabled = true;
+
+    pushEvent('connect_form_submit', {
+      prospectCompany: company || 'n/a',
+      prospectMail: email || 'n/a'
+    });
+
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('company', company);
+      formData.append('email', email);
+      formData.append('message', message);
+      formData.append('_subject', subject);
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+
+      const res = await fetch('https://formsubmit.co/ajax/skdhruva2012@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData,
+      });
+
+      if (res.ok) {
+        if (connectStatus) connectStatus.textContent = 'Thank you. Your message was sent successfully.';
+        connectForm.reset();
+        return;
+      }
+      throw new Error('submit-failed');
+    } catch {
+      if (connectStatus) connectStatus.textContent = 'Could not send automatically. Opening your mail app as fallback.';
+      window.location.href = 'mailto:skdhruva2012@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    } finally {
+      if (connectBtn) connectBtn.disabled = false;
+    }
+  });
+}
+</script>
+</body>
+</html>
