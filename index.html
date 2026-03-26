@@ -1335,20 +1335,32 @@ fig.show()</pre>
 let clientIpMasked = "n/a";
 let clientNetworkOrg = "n/a";
 let clientLocation = "n/a";
-const SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyDSE30IsC5l6m8sIqnALXtxVFwTY-LUdX200DoYeb4/exec";
+const DEFAULT_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxECwoiDwXGMASS-53OFrfmSbaFIAFKPQ61BwdLeUvEJoAGXIzGYo4jOhEa7CDKJW9R/exec";
+const SHEETS_URL_STORAGE_KEY = "portfolio_sheets_url";
 
 function isSheetsUrlConfigured(url) {
   return typeof url === "string" && /^https:\/\/script\.google\.com\//.test(url);
 }
 
+function getSheetsWebAppUrl() {
+  try {
+    const saved = localStorage.getItem(SHEETS_URL_STORAGE_KEY);
+    if (saved && isSheetsUrlConfigured(saved.trim())) return saved.trim();
+  } catch {
+    // Ignore browser storage issues and use default URL
+  }
+  return isSheetsUrlConfigured(DEFAULT_SHEETS_WEB_APP_URL) ? DEFAULT_SHEETS_WEB_APP_URL : "";
+}
+
 function postEventToSheets(payload) {
-  if (!isSheetsUrlConfigured(SHEETS_WEB_APP_URL)) return;
+  const sheetsUrl = getSheetsWebAppUrl();
+  if (!sheetsUrl) return;
 
   const body = JSON.stringify({ action: "append", event: payload });
   try {
     if (navigator.sendBeacon) {
       const sent = navigator.sendBeacon(
-        SHEETS_WEB_APP_URL,
+        sheetsUrl,
         new Blob([body], { type: "text/plain;charset=UTF-8" })
       );
       if (sent) return;
@@ -1357,7 +1369,7 @@ function postEventToSheets(payload) {
     // ignore and fallback to fetch
   }
 
-  fetch(SHEETS_WEB_APP_URL, {
+  fetch(sheetsUrl, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "text/plain;charset=UTF-8" },
@@ -1469,11 +1481,13 @@ function pushEvent(eventName, details = {}) {
   postEventToSheets(payload);
 }
 
+pushEvent("page_view", { page: "index" });
+
 Promise.all([getClientMaskedIp(), getClientNetworkOrg()]).then(values => {
   clientIpMasked = values[0] || "n/a";
   clientNetworkOrg = values[1]?.org || "n/a";
   clientLocation = values[1]?.location || "n/a";
-  pushEvent("page_view", { page: "index" });
+  pushEvent("visitor_context", { page: "index" });
 });
 
 const heroRole = document.querySelector('.hero-role');
