@@ -647,6 +647,63 @@ footer {
   padding: 10px 12px;
   overflow-x: auto;
 }
+.flow-row {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+.flow-node {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(9, 19, 37, 0.75);
+  padding: 8px 10px;
+  min-width: 0;
+  flex: 1 1 0;
+}
+.flow-node-output {
+  flex: 1.22 1 0;
+}
+.flow-node strong {
+  display: block;
+  color: #eaf2ff;
+  font-size: 10px;
+  line-height: 1.28;
+}
+.flow-node span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.35;
+  word-break: break-word;
+}
+.flow-arrow {
+  color: var(--cyan);
+  align-self: center;
+  flex: 0 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+.tech-stack-row {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.tech-chip {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px 8px;
+  color: #dbe8ff;
+  background: rgba(9, 19, 37, 0.72);
+  font-size: 11px;
+}
 
 .reveal { opacity: 0; transform: translateY(14px); transition: .5s ease; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -698,7 +755,7 @@ footer {
         </div>
         <div class="hero-media">
           <div class="hero-profile">
-            <img src="image.png" alt="Shubham Dhruva portrait">
+            <img src="image.png" alt="Shubham Dhruva portrait" decoding="async">
           </div>
         </div>
       </div>
@@ -712,7 +769,6 @@ footer {
   <article class="who-card reveal">
     <p>I do not just analyze data - I turn messy, complex datasets into decisions that save time, grow revenue, and reduce risk. That is what I have done across ML projects, dashboards, and ETL pipelines.</p>
     <p>Completed my Master of Science in Computer Science at Arizona State University (GPA: 4.0), I specialize in end-to-end data workflows - from data ingestion and preprocessing to predictive modeling and visualization. My technical toolkit includes Python, SQL, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Apache Spark, and AWS.</p>
-    <p>As a Library Assistant at ASU, I also honed cross-functional communication, database management, and technical support - skills that bridge the gap between data teams and business stakeholders.</p>
     <p>I bring a problem-solver mindset: I ask why the numbers look the way they do, not just what they are. I thrive in collaborative, fast-moving environments and am actively seeking Data Analyst, Data Scientist, or AI Specialist roles in the US - open to roles across USA and remote positions.</p>
   </article>
 </section>
@@ -740,6 +796,7 @@ footer {
           <button class="skill-pill" data-group="ML and AI">TensorFlow</button>
           <button class="skill-pill" data-group="ML and AI">PyTorch</button>
           <button class="skill-pill" data-group="ML and AI">Feature Engineering</button>
+          <button class="skill-pill" data-group="ML and AI">SMOTE</button>
         </div>
       </div>
 
@@ -750,17 +807,48 @@ footer {
           <button class="skill-pill" data-group="BI and Visualization">Tableau</button>
           <button class="skill-pill" data-group="BI and Visualization">Matplotlib</button>
           <button class="skill-pill" data-group="BI and Visualization">Seaborn</button>
-          <button class="skill-pill" data-group="BI and Visualization">DAX / Power Query</button>
+          <button class="skill-pill" data-group="BI and Visualization">Bokeh</button>
+          <button class="skill-pill" data-group="BI and Visualization">Plotly</button>
+          <button class="skill-pill" data-group="BI and Visualization">DAX</button>
+          <button class="skill-pill" data-group="BI and Visualization">Power Query</button>
         </div>
       </div>
 
       <div class="skill-card reveal">
         <div class="skill-head">Data Engineering</div>
         <div class="skill-pills">
-          <button class="skill-pill" data-group="Data Engineering">ETL Pipelines</button>
+          <button class="skill-pill" data-group="Data Engineering">ETL/ELT Pipelines</button>
           <button class="skill-pill" data-group="Data Engineering">Apache Spark</button>
           <button class="skill-pill" data-group="Data Engineering">AWS</button>
-          <button class="skill-pill" data-group="Data Engineering">PostgreSQL / MySQL</button>
+          <button class="skill-pill" data-group="Data Engineering">PostgreSQL</button>
+          <button class="skill-pill" data-group="Data Engineering">MySQL</button>
+          <button class="skill-pill" data-group="Data Engineering">Data Warehousing</button>
+          <button class="skill-pill" data-group="Data Engineering">Data Lakes</button>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-head">Libraries and Tools</div>
+        <div class="skill-pills">
+          <button class="skill-pill" data-group="Libraries and Tools">NumPy</button>
+          <button class="skill-pill" data-group="Libraries and Tools">Pandas</button>
+          <button class="skill-pill" data-group="Libraries and Tools">OpenCV</button>
+          <button class="skill-pill" data-group="Libraries and Tools">Git/CI-CD</button>
+          <button class="skill-pill" data-group="Libraries and Tools">Flask</button>
+          <button class="skill-pill" data-group="Libraries and Tools">Django</button>
+          <button class="skill-pill" data-group="Libraries and Tools">Selenium</button>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-head">Methods</div>
+        <div class="skill-pills">
+          <button class="skill-pill" data-group="Methods">Statistical Analysis</button>
+          <button class="skill-pill" data-group="Methods">Agile/Scrum</button>
+          <button class="skill-pill" data-group="Methods">SDLC</button>
+          <button class="skill-pill" data-group="Methods">A/B Testing</button>
+          <button class="skill-pill" data-group="Methods">EDA</button>
+          <button class="skill-pill" data-group="Methods">Customer Segmentation</button>
         </div>
       </div>
     </div>
@@ -781,7 +869,7 @@ footer {
   <div class="project-grid">
     <article class="project-card reveal" data-tags="ml healthcare">
       <div class="project-visual cv">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80" alt="Healthcare analytics dashboard visual">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=70" alt="Healthcare analytics dashboard visual" loading="lazy" decoding="async">
         <span class="project-visual-label">BRAIN MRI ML</span>
       </div>
       <div class="project-body" data-open="brain">
@@ -794,7 +882,7 @@ footer {
 
     <article class="project-card reveal" data-tags="ml healthcare">
       <div class="project-visual health">
-        <img src="https://images.unsplash.com/photo-1579165466991-467135ad3110?auto=format&fit=crop&w=1200&q=80" alt="Healthcare machine learning dashboard visual">
+        <img src="https://images.unsplash.com/photo-1579165466991-467135ad3110?auto=format&fit=crop&w=900&q=70" alt="Healthcare machine learning dashboard visual" loading="lazy" decoding="async">
         <span class="project-visual-label">HEALTHCARE ML</span>
       </div>
       <div class="project-body" data-open="diabetes">
@@ -807,7 +895,7 @@ footer {
 
     <article class="project-card reveal" data-tags="analytics">
       <div class="project-visual bi">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="E-commerce analytics dashboard visual">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=70" alt="E-commerce analytics dashboard visual" loading="lazy" decoding="async">
         <span class="project-visual-label">E-COMMERCE ANALYTICS</span>
       </div>
       <div class="project-body" data-open="ecommerce">
@@ -820,7 +908,7 @@ footer {
 
     <article class="project-card reveal" data-tags="ml analytics">
       <div class="project-visual cv">
-        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80" alt="Credit card fraud detection visual">
+        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=70" alt="Credit card fraud detection visual" loading="lazy" decoding="async">
         <span class="project-visual-label">FRAUD DETECTION</span>
       </div>
       <div class="project-body" data-open="fraud">
@@ -833,7 +921,7 @@ footer {
 
     <article class="project-card reveal" data-tags="analytics">
       <div class="project-visual bi">
-        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80" alt="Renewable energy wind farm visual">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=70" alt="Renewable energy wind farm visual" loading="lazy" decoding="async">
         <span class="project-visual-label">RENEWABLE EDA</span>
       </div>
       <div class="project-body" data-open="renewable">
@@ -925,7 +1013,7 @@ footer {
     <article class="edu-card reveal">
       <div class="edu-title">B.Tech in Computer Engineering</div>
       <div class="edu-org">Bharati Vidyapeeth Deemed University (Pune, India)</div>
-      <button class="edu-toggle" data-target="bachelors">View Important Courses</button>
+      <button class="edu-toggle" data-target="bachelors">View Coursework</button>
       <ul class="course-list" id="bachelors">
         <li>Data Mining and Knowledge Discovery</li>
         <li>Big Data Analytics and Architecture</li>
@@ -940,7 +1028,7 @@ footer {
       <div class="edu-meta">
         <span class="gold">GPA: 9.21 / 10.0</span>
         <span>Jul 2019 - Jun 2023</span>
-        <span>KAVACH 2023</span>
+        <span>Pune, MH</span>
       </div>
     </article>
   </div>
@@ -989,22 +1077,46 @@ footer {
       <button class="modal-close" data-close>x</button>
     </div>
     <div class="modal-body">
-      <h4>Problem</h4>
-      <p>Automate MRI-based tumor detection with robust classification performance.</p>
+      <h4>Overview</h4>
+      <p>Automated MRI-based tumor detection using classical ML - processed and classified brain MRI images with SVM and Logistic Regression, with iterative precision tuning and false-positive reduction.</p>
+
+      <h4>Pipeline Flowchart</h4>
+      <div class="flow-row">
+        <div class="flow-node"><strong>Raw MRI Images</strong><span>Input</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>OpenCV Preprocess</strong><span>Resize · Normalize · Flatten (Step 1)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>Feature Scaling</strong><span>StandardScaler (Step 2)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>SVM + LR</strong><span>Train and Tune (Step 3)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node flow-node-output"><strong>Evaluate</strong><span>Accuracy · Precision · Recall (Output)</span></div>
+      </div>
+
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">import cv2, numpy as np
+from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import classification_report
+
+images = [cv2.imread(p, 0) for p in paths]
+X = np.array([cv2.resize(img, (64, 64)).flatten() for img in images])
+X_scaled = StandardScaler().fit_transform(X)
+
+model = SVC(kernel='rbf', C=1.0, probability=True)
+model.fit(X_train, y_train)
+print(classification_report(y_test, model.predict(X_test)))</pre>
+
       <h4>Approach</h4>
       <ul>
-        <li>Preprocessed MRI images with OpenCV</li>
-        <li>Trained SVM and Logistic Regression models</li>
-        <li>Evaluated with accuracy and precision-oriented tuning</li>
+        <li>Preprocessed MRI images using OpenCV - resizing, normalizing, and flattening pixel values into feature vectors.</li>
+        <li>Trained SVM (RBF kernel) and Logistic Regression with hyperparameter tuning on pixel-based representations.</li>
+        <li>Applied feature scaling and stratified train-test splits to improve robustness and generalization.</li>
+        <li>Validated across multiple data subsets to ensure generalizability and reduce false positives.</li>
       </ul>
+
       <h4>Tech Stack</h4>
-      <ul><li>Python, OpenCV, NumPy, Scikit-learn</li></ul>
-      <h4>Pipeline Code Snippet</h4>
-      <pre class="pipeline-snippet">images = load_mri_images(path)
-X, y = preprocess_opencv(images)
-X_train, X_test, y_train, y_test = train_test_split(X, y)
-model = train_svm_or_logreg(X_train, y_train)
-print(evaluate_precision_recall(model, X_test, y_test))</pre>
+      <div class="tech-stack-row"><span class="tech-chip">Python</span><span class="tech-chip">OpenCV</span><span class="tech-chip">NumPy</span><span class="tech-chip">Scikit-learn</span><span class="tech-chip">SVM</span><span class="tech-chip">Logistic Regression</span><span class="tech-chip">Pandas</span></div>
     </div>
   </div>
 </div>
@@ -1016,22 +1128,48 @@ print(evaluate_precision_recall(model, X_test, y_test))</pre>
       <button class="modal-close" data-close>x</button>
     </div>
     <div class="modal-body">
-      <h4>Problem</h4>
-      <p>Predict early diabetes risk from clinical and survey-style records.</p>
+      <h4>Overview</h4>
+      <p>Predictive analytics pipeline for early diabetes risk identification - integrated EHR data, lifestyle surveys, and public health databases into a multi-model classification workflow optimized for recall to minimize missed diagnoses.</p>
+
+      <h4>Pipeline Flowchart</h4>
+      <div class="flow-row">
+        <div class="flow-node"><strong>EHR + Survey Data</strong><span>Input</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>ETL and Merge</strong><span>pd.merge · encode · scale (Step 1)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>Feature Selection</strong><span>EDA · Correlation (Step 2)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>4-Model Comparison</strong><span>LR · KNN · NB · XGB (Step 3)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node flow-node-output"><strong>Best Model</strong><span>F1 · AUC · Recall (Output)</span></div>
+      </div>
+
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">import pandas as pd
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.model_selection import cross_val_score
+from sklearn.neighbors import KNeighborsClassifier
+from xgboost import XGBClassifier
+
+df = pd.merge(ehr_df, survey_df, on='patient_id')
+df[cat_cols] = df[cat_cols].apply(lambda c: LabelEncoder().fit_transform(c))
+X = StandardScaler().fit_transform(df[features])
+
+models = {'KNN': KNeighborsClassifier(), 'XGB': XGBClassifier()}
+for name, clf in models.items():
+    score = cross_val_score(clf, X, y, cv=5, scoring='recall').mean()
+    print(f"{name}: {score:.3f}")</pre>
+
       <h4>Approach</h4>
       <ul>
-        <li>Feature selection and preprocessing pipeline</li>
-        <li>Multi-model comparison: LR, KNN, Naive Bayes, XGBoost</li>
-        <li>Performance measured with recall, precision, and F1</li>
+        <li>Integrated EHR records, lifestyle surveys, and public health databases with focus on blood glucose and BMI.</li>
+        <li>Ran statistical EDA to identify key risk factors and applied feature selection techniques.</li>
+        <li>Built and compared 4 models while optimizing for recall to minimize missed diagnoses.</li>
+        <li>Evaluated with accuracy, precision, recall, F1, and AUC-ROC to ensure clinical reliability.</li>
       </ul>
+
       <h4>Tech Stack</h4>
-      <ul><li>Python, Pandas, Scikit-learn, XGBoost</li></ul>
-      <h4>Pipeline Code Snippet</h4>
-      <pre class="pipeline-snippet">df = read_ehr_csv(file)
-df = clean_missing_values(df)
-X, y = encode_and_scale(df)
-models = train_models(["knn", "naive_bayes", "xgboost"], X, y)
-print(compare_by_f1_recall(models, X, y))</pre>
+      <div class="tech-stack-row"><span class="tech-chip">Python</span><span class="tech-chip">Pandas</span><span class="tech-chip">NumPy</span><span class="tech-chip">Scikit-learn</span><span class="tech-chip">XGBoost</span><span class="tech-chip">KNN</span><span class="tech-chip">Naive Bayes</span><span class="tech-chip">Matplotlib</span></div>
     </div>
   </div>
 </div>
@@ -1043,22 +1181,48 @@ print(compare_by_f1_recall(models, X, y))</pre>
       <button class="modal-close" data-close>x</button>
     </div>
     <div class="modal-body">
-      <h4>Problem</h4>
-      <p>Understand pricing and customer behavior to support retention and growth decisions.</p>
+      <h4>Overview</h4>
+      <p>Large-scale pricing and customer analytics pipeline over real transaction data - identifying elasticity patterns, revenue concentration, and actionable customer segments.</p>
+
+      <h4>Pipeline Flowchart</h4>
+      <div class="flow-row">
+        <div class="flow-node"><strong>99K Orders · 32K Products</strong><span>Input</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>SQL EDA</strong><span>Pricing · Elasticity (Step 1)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>K-Means</strong><span>Customer Segments (Step 2)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>CLV + Churn</strong><span>ML Predictions (Step 3)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node flow-node-output"><strong>Revenue Insights</strong><span>BI-ready Output</span></div>
+      </div>
+
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">elasticity = (df.groupby('product_id')
+              .apply(lambda g: g['qty'].pct_change() / g['price'].pct_change())
+              .reset_index())
+
+from sklearn.cluster import KMeans
+rfm = df.groupby('customer_id').agg(
+    recency=('order_date', 'max'),
+    frequency=('order_id', 'count'),
+    monetary=('revenue', 'sum')
+)
+kmeans = KMeans(n_clusters=4).fit(rfm)
+
+revenue_sorted = df.groupby('product_id')['revenue'].sum().sort_values(ascending=False)
+cumulative = revenue_sorted.cumsum() / revenue_sorted.sum()</pre>
+
       <h4>Approach</h4>
       <ul>
-        <li>Built integrated analytics data flow</li>
-        <li>Used segmentation and trend analysis</li>
-        <li>Created BI-ready outputs for reporting</li>
+        <li>Analyzed 99K+ orders across 32K+ products and 70+ categories for pricing effectiveness.</li>
+        <li>Performed price elasticity analysis to quantify impact of price changes on demand.</li>
+        <li>Segmented 10K+ customers using K-Means, then predicted CLV and churn-risk profiles.</li>
+        <li>Enabled targeted engagement strategies for high-value customer retention.</li>
       </ul>
+
       <h4>Tech Stack</h4>
-      <ul><li>Pandas, SQL, K-Means, Matplotlib</li></ul>
-      <h4>Pipeline Code Snippet</h4>
-      <pre class="pipeline-snippet">orders = extract_transactions_sql(conn)
-orders = clean_orders(orders)
-rfm = feature_engineering_rfm(orders)
-segments = kmeans_segmentation(rfm)
-publish_dashboard_outputs(segments)</pre>
+      <div class="tech-stack-row"><span class="tech-chip">Python</span><span class="tech-chip">Pandas</span><span class="tech-chip">Scikit-learn</span><span class="tech-chip">K-Means</span><span class="tech-chip">SQL</span><span class="tech-chip">Matplotlib</span><span class="tech-chip">Seaborn</span></div>
     </div>
   </div>
 </div>
@@ -1070,22 +1234,48 @@ publish_dashboard_outputs(segments)</pre>
       <button class="modal-close" data-close>x</button>
     </div>
     <div class="modal-body">
-      <h4>Problem</h4>
-      <p>Detect rare fraud events in a highly imbalanced credit card transaction dataset.</p>
+      <h4>Overview</h4>
+      <p>End-to-end fraud detection system for highly imbalanced transaction data - addressed the precision-recall tradeoff in financial fraud with SMOTE oversampling and comparative model evaluation focused on minimizing false negatives.</p>
+
+      <h4>Pipeline Flowchart</h4>
+      <div class="flow-row">
+        <div class="flow-node"><strong>Raw Transactions</strong><span>Imbalanced Input</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>EDA + Cleaning</strong><span>Outliers · Distributions (Step 1)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>SMOTE</strong><span>Oversample Minority (Step 2)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>LR vs XGBoost</strong><span>Train and Compare (Step 3)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node flow-node-output"><strong>AUC + Confusion Matrix</strong><span>Recall Optimized Output</span></div>
+      </div>
+
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">from imblearn.over_sampling import SMOTE
+from sklearn.model_selection import train_test_split
+from xgboost import XGBClassifier
+from sklearn.metrics import roc_auc_score, confusion_matrix
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, stratify=y, test_size=0.2, random_state=42
+)
+X_res, y_res = SMOTE().fit_resample(X_train, y_train)
+
+clf = XGBClassifier(scale_pos_weight=10, eval_metric='aucpr')
+clf.fit(X_res, y_res)
+print("AUC:", roc_auc_score(y_test, clf.predict_proba(X_test)[:, 1]))
+print(confusion_matrix(y_test, clf.predict(X_test)))</pre>
+
       <h4>Approach</h4>
       <ul>
-        <li>Applied stratified split and SMOTE</li>
-        <li>Compared Logistic Regression and XGBoost</li>
-        <li>Focused on confusion matrix, recall, and precision</li>
+        <li>Handled extreme class imbalance using SMOTE oversampling and stratified data splitting.</li>
+        <li>Compared Logistic Regression and XGBoost on precision, recall, F1, and AUC-ROC.</li>
+        <li>Focused on confusion matrix analysis to minimize false negatives (missed fraud).</li>
+        <li>Built comprehensive EDA with Seaborn and Matplotlib to visualize fraud patterns.</li>
       </ul>
+
       <h4>Tech Stack</h4>
-      <ul><li>Pandas, Scikit-learn, XGBoost, imbalanced-learn</li></ul>
-      <h4>Pipeline Code Snippet</h4>
-      <pre class="pipeline-snippet">X_train, X_test, y_train, y_test = stratified_split(X, y)
-X_res, y_res = smote_resample(X_train, y_train)
-models = train_lr_xgb(X_res, y_res)
-best = threshold_tuning(models, X_test, y_test)
-save_model(best, "fraud_model.pkl")</pre>
+      <div class="tech-stack-row"><span class="tech-chip">Python</span><span class="tech-chip">Pandas</span><span class="tech-chip">Scikit-learn</span><span class="tech-chip">XGBoost</span><span class="tech-chip">imbalanced-learn</span><span class="tech-chip">SMOTE</span><span class="tech-chip">Seaborn</span><span class="tech-chip">Matplotlib</span></div>
     </div>
   </div>
 </div>
@@ -1097,22 +1287,46 @@ save_model(best, "fraud_model.pkl")</pre>
       <button class="modal-close" data-close>x</button>
     </div>
     <div class="modal-body">
-      <h4>Problem</h4>
-      <p>Analyze long-term renewable energy behavior in the U.S. by source and sector.</p>
+      <h4>Overview</h4>
+      <p>Comprehensive EDA of U.S. renewable energy consumption patterns - examining multi-decade trends by source (solar, wind, hydro, biomass) and sector (residential, commercial, industrial) with rich visual storytelling of the energy transition.</p>
+
+      <h4>Pipeline Flowchart</h4>
+      <div class="flow-row">
+        <div class="flow-node"><strong>Raw EIA Dataset</strong><span>Multi-decade Monthly Input</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>Clean and Profile</strong><span>Nulls · Outliers · Units (Step 1)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>Source Trend Analysis</strong><span>Solar · Wind · Hydro (Step 2)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node"><strong>Sector Comparison</strong><span>Residential · Industrial (Step 3)</span></div>
+        <span class="flow-arrow">-></span>
+        <div class="flow-node flow-node-output"><strong>Interactive Charts</strong><span>Plotly · Seaborn Output</span></div>
+      </div>
+
+      <h4>Pipeline Code Snippet</h4>
+      <pre class="pipeline-snippet">import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv('eia_renewable.csv', parse_dates=['date'])
+df.dropna(subset=['consumption_btus'], inplace=True)
+
+pivot = df.pivot_table(index='year', columns='source',
+                       values='consumption_btus', aggfunc='sum')
+df['renew_share'] = df['renewable'] / df['total_energy'] * 100
+
+fig = px.line(pivot, title='US Renewable Energy by Source')
+fig.show()</pre>
+
       <h4>Approach</h4>
       <ul>
-        <li>Cleaned and profiled multi-year monthly dataset</li>
-        <li>Compared source trends and sector patterns</li>
-        <li>Examined renewable share against total energy</li>
+        <li>Cleaned and profiled multi-year monthly dataset with missing values, outliers, and unit conversions.</li>
+        <li>Compared source-level trends, including solar and wind adoption trajectories against hydro baselines.</li>
+        <li>Analyzed sector-level consumption patterns and seasonal variation across decades.</li>
+        <li>Built interactive Plotly charts with Matplotlib and Seaborn visual support.</li>
       </ul>
+
       <h4>Tech Stack</h4>
-      <ul><li>Pandas, NumPy, Matplotlib, Seaborn, Plotly</li></ul>
-      <h4>Pipeline Code Snippet</h4>
-      <pre class="pipeline-snippet">df = load_eia_dataset(file)
-df = tidy_timeseries(df)
-agg = aggregate_by_source_sector(df)
-charts = compare_trends(agg)
-publish_insights_report(charts)</pre>
+      <div class="tech-stack-row"><span class="tech-chip">Python</span><span class="tech-chip">Pandas</span><span class="tech-chip">NumPy</span><span class="tech-chip">Matplotlib</span><span class="tech-chip">Seaborn</span><span class="tech-chip">Plotly</span></div>
     </div>
   </div>
 </div>
@@ -1307,7 +1521,9 @@ if (heroRole) {
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    revealObserver.unobserve(entry.target);
   });
 }, { threshold: 0.15 });
 
@@ -1315,12 +1531,17 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 const navLinks = [...document.querySelectorAll('.nav-links a')];
 const trackedSections = [...document.querySelectorAll('section[id]')];
+const loggedSections = new Set();
 const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    pushEvent("section_view", { section: entry.target.id });
+    const sectionId = entry.target.id;
+    if (!loggedSections.has(sectionId)) {
+      loggedSections.add(sectionId);
+      pushEvent("section_view", { section: sectionId });
+    }
     navLinks.forEach(link => {
-      const active = link.getAttribute('href') === '#' + entry.target.id;
+      const active = link.getAttribute('href') === '#' + sectionId;
       link.classList.toggle('active', active);
     });
   });
@@ -1356,7 +1577,7 @@ document.querySelectorAll('.edu-toggle').forEach(button => {
     const target = document.getElementById(button.dataset.target);
     const willOpen = !target.classList.contains('open');
     target.classList.toggle('open');
-    button.textContent = willOpen ? 'Hide Coursework' : (button.dataset.target === 'bachelors' ? 'View Important Courses' : 'View Coursework');
+    button.textContent = willOpen ? 'Hide Coursework' : 'View Coursework';
   });
 });
 
